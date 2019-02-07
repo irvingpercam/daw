@@ -10,7 +10,7 @@
 
 body
 {
-  background-color: #9c9c00;
+  background-color: #00ab6c;
   padding: 50px;
 }
 
@@ -65,13 +65,24 @@ h2
 
 h3{
     color: black;
-    text-align: justify;
+    text-align: center;
     font-size: 25px;
 	font-weight: 600;
 	line-height: 1.5;
 	margin: 0 0 2px 0;
 	font-family: 'Roboto Condensed';
     src: url(/fonts/RobotoCondensed.ttf);
+}
+
+h4{
+  color: rgb(79, 79, 255);
+  text-align: justify;
+  font-size: 20px;
+	font-weight: 600;
+	line-height: 1.5;
+	margin: 0 0 2px 0;
+	font-family: 'Roboto Condensed';
+  src: url(/fonts/RobotoCondensed.ttf);
 }
 
 nav,
@@ -92,7 +103,7 @@ section article,
 section footer
 {
   width: 100%;
-  background-color: #9c9c00;
+  background-color: #00ab6c;
   border-radius: 5px;
   margin: 0;
   padding: 50px;
