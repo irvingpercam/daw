@@ -1,0 +1,66 @@
+<DOCTYPE! html>
+        <html lang="en">
+        <!-- Stylesheet =============================== -->
+        <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+        <head>
+          <meta charset="utf-8">
+          <!-- Favicon =============================== -->
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+          <title>Lab 5. Desarrollo de Aplicaciones Web</title>
+        </head>
+        <body class="hello">
+          <header>
+            <h1>DAW - BD</h1>
+            <h2>Irving Alain Aguilar Perez</h2>
+          </header>
+          <div class="topnav">
+                <a class="active" href="../index.html">Inicio</a>
+            </div>
+            <br>
+            <header>
+                <div>
+                    <h2>Prueba 1</h2>
+                    <h3>Introduce tu password</h3>
+                    <input type="password" name="password" id="password" value="">
+                    <h3>Vuelve a introducir tu password </h3>
+                    <input type="password" name="passwordB" id="passwordB" value="">
+                    <button type="button" name="submiter" onclick="password()">Verificar</button><br>
+                    <p id="accessMessage"></p>
+                    <br>
+                    <br>
+                </div>
+            
+                <div>
+                    <h2>Prueba 2</h2>
+                    <h3>Arma tu hamburguesa</h3>
+                    Pan Artesanal <input type="number" name="panArtesanal" id="panArtesanal" value="0" min="0"><h3>$5</h3><br>
+                    Carne Extra <input type="number" name="carneExtra" id="carneExtra" value="0" min="0"><h3>$10</h3><br>
+                    Tomate Extra <input type="number" name="tomateExtra" id="tomateExtra" value="0" min="0"><h3>$5</h3><br>
+                    Aderezo Extra <input type="number" name="aderezoExtra" id="aderezoExtra" value="0" min="0"><h3>$5</h3><br>
+                    Cebolla Extra <input type="number" name="cebollaExtra" id="cebollaExtra" value="0" min="0"><h3>$5</h3><br>
+                    Lechuga Extra <input type="number" name="lechugaExtra" id="lechugaExtra" value="0" min="0"><h3>$5</h3><br>
+                    Tocino <input type="number" name="tocino" id="tocino" value="0" min="0"><h3>$5</h3><br>
+                    Guacamole <input type="number" name="guacamole" id="guacamole" value="0" min="0"><h3>$10</h3><br>
+                    Pineapple <input type="number" name="pneapple" id="pineapple" value="0" min="0"><h3>$8</h3><br>
+                    IVA <input type="number" name="iva" value="16" id="iva" min="0" max="100"><br>
+                    <br>
+                    Total: <p id="pago"> </p>
+                    <button type="button" name="boton" onclick="productos()">Pagar</button>
+                    <button type="button" name="boton" onclick="productosPoints()">Pagar Con Puntos</button><br>
+                    <br>
+                    <br>
+                </div>
+            
+                <div>
+                    <h2>Prueba 3</h2>
+                    <h3>Calcula tu índice de masa corporal</h3>
+                    Altura <input type="number" name="altura" id="altura" value="1.50" min="0"><h3>m</h3><br>
+                    Peso <input type="number" name="peso" id="peso" value="50" min="0"><h3>kg</h3><br>
+                    Total: <p id="imc"> </p>
+                    <button type="button" name="boton" onclick="imc()">Calcular</button>
+                    <br>
+                    <br>
+                </div>
+            </header>
+            <script type="text/javascript" src="javascript.js"></script>
+        </html>
