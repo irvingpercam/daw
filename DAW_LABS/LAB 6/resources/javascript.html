@@ -1,0 +1,65 @@
+<DOCTYPE! html>
+        <html lang="en">
+        <!-- Stylesheet =============================== -->
+        <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+        <head>
+          <meta charset="utf-8">
+          <!-- Favicon =============================== -->
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+          <title>Lab 6. Desarrollo de Aplicaciones Web</title>
+        </head>
+        <body class="hello">
+          <header>
+            <h1>DAW - BD</h1>
+            <h2>Irving Alain Aguilar Perez</h2>
+          </header>
+          <div class="topnav">
+                <a class="active" href="../index.html">Inicio</a>
+                <a href="preguntas.html#referencias">Referencias</a>
+            </div>
+            <br>
+            <header>
+                <div>
+                    <div class="watermark">Irvs</div>
+                    <br>
+                    <br>
+                </div>
+                <div>
+                    <h2>Prueba 2</h2>
+                    <p id="cambioFuente" onmouseover="cambiarFuente()" onmouseout="fuenteOriginal()">Puedes hackear a la Nasa pasando tu mouse por encima de este texto :)</p>
+                </div>
+                <div>
+                    <h2>Prueba 3</h2>
+                    <p>Incluye ejemplo de SetTimeOut</p>
+                    <div class="question" onmouseover="pedirAyuda()" onmouseout="ayudaMostrada()">Si necesita ayuda puede dejar el cursor sobre este texto durante 5 segundos</div>
+                    <br>
+                    <h3>Calcula tu índice de masa corporal</h3>
+                    Altura <input type="number" name="altura" id="altura" value="1.50" min="0"><h3>m</h3><br>
+                    Peso <input type="number" name="peso" id="peso" value="50" min="0"><h3>kg</h3><br>
+                    Total: <p id="imc"> </p>
+                    <button type="button" name="boton" onclick="imc()">Calcular</button>
+                    <br>
+                    <br>
+                </div>
+            
+                <div>
+                    <h2>Prueba 4</h2>
+                    <div id="box" class="bigBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+                      <p>Arrastra el logo del Tec</p>
+                    </div>
+                    <br>
+                    <img id="drag1" src="TecMonterrey.png" draggable="true" ondragstart="drag(event)" width="10" height="10">
+                    <br>
+                    <br>
+                </div>
+                <div>
+                  <h2>Prueba 5</h2>
+                  <p>Checa la hora, no se te vaya a hacer tarde mientras estas viendo mi lab :c</p>
+                  <p>Ejemplo de SetInterval</p>
+                  <p id="hora"></p>
+                  <br>
+                  <br>
+              </div>
+            </header>
+            <script type="text/javascript" src="javascript.js"></script>
+        </html>
