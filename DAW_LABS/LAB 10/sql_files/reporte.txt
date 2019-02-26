@@ -1,0 +1,34 @@
+Ejecuta la siguiente instrucción
+
+sp_help materiales
+
+¿Que muestra la instrucción? 
+
+Muestra la pestaña de results, donde se encuentran los elementos de la tabla (nombre de columnas, tipo de dato, etc);
+
+Ejecuta las instrucciones que contiene el archivo crear.sql 
+
+¿Qué efecto tuvo esta acción?
+
+Creó las tablas de acuerdo a los comandos correspondientes.
+
+¿Qué utilidad tiene esta manera de ejecutar los comandos de SQL?
+
+Que a través de los comandos, se pueden crear objetos de una forma más rápida, indicando los parámetros que tendrán sus elementos.
+
+¿Qué relación tienen con las tablas de la base de datos?
+
+Las tablas coinciden con los tipos de datos que se encuentran en los archivos en sus filas y columnas.
+
+¿Qué relación tiene el contenido de este archivo (materiales.sql) con el formato en que se encuentran los datos en el archivo materiales.csv?
+
+Los tipos de datos corresponden.
+
+Después de la ejecución del comando, vuelve a revisar el contenido de la tabla materiales mediante el uso de una consulta. 
+
+SELECT  * FROM Materiales
+
+
+¿Qué sucedió?
+
+Muestra las tablas cargadas con los datos que se cargaron desde el archivo csv.
