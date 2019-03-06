@@ -32,5 +32,6 @@
                     include("validate-form.php");
                 ?>
             </form>
+            <h2><a href="preguntas.html">Preguntas</a></h2>
     </body>
 </html>
