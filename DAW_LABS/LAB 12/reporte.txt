@@ -1,0 +1,50 @@
+*** ¿Cuál es? ¿A qué se debe? ***
+
+La descripción no coincide con las demás, esto se debe a que se agregó ‘xxx’. Es información inconsistente.
+
+*** ¿Qué ocurrió? ***
+
+Aparece un error, ya que se está dando una violación de la llave primaria porque se está duplicando una llave.
+
+*** ¿Qué información muestra esta consulta? ***
+
+La consulta muestra el “object name”, en este caso, el nombre de la tabla y abajo aparece el “constraint_type” de primary key, el nombre del constraint y hasta el final de la tabla, el “constraint_keys”, definido como la clave.
+
+*** ¿Qué sentencias utilizaste para definir las llaves primarias? ***
+
+ALTER TABLE Proveedores add constraint llaveProveedores PRIMARY KEY (RFC)
+ALTER TABLE Proyectos add constraint llaveProyectos PRIMARY KEY (Numero)
+
+*** ¿Qué sentencias utilizaste para definir este constrait? ***
+
+ALTER TABLE Entregan add constraint llaveEntregan PRIMARY KEY (Clave, RFC, Numero, Fecha) 
+
+*** ¿Qué particularidad observas en los valores para clave, rfc y numero? 
+¿Cómo responde el sistema a la inserción de este registro? ***
+
+Se guarda la información, pero esta es inconsistente.
+
+*** ¿Qué significa el mensaje que emite el sistema? 
+¿Qué significado tiene la sentencia anterior? ***
+
+Al tratar de ejecutar el comando, este entra en conflicto con la llave foránea del constraint y la información inconsistente no se agrega, ya que la clave no está permitida.
+
+*** ¿Qué significan las columnas de esas consultas? ***
+
+Las columnas representan los constraint que hemos creado
+
+*** ¿Qué uso se le está dando a GETDATE()? 
+¿Tiene sentido el valor del campo de cantidad? ***
+
+Se realiza una transacción y se guardan la fecha y hora actuales.
+
+El valor no es lógico.
+
+*** ¿Cómo responde el sistema? 
+¿Qué significa el mensaje? ***
+
+El sistema responde con un error. No se agrega la información a la tabla, ya que se crea un conflicto con el constraint de cantidad.
+
+*** Integridad referencial ***
+
+Este concepto se relaciona con la creación de constraints para evitar la carga de información inconsistente a una base de datos.
