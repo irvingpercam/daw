@@ -138,3 +138,24 @@ Función para la mediana: http://www.forosdelweb.com/f18/moda-mediana-php-108600
 
 */
 ?>
+<article>
+		  	<h2>¿Qué hace la función phpinfo()? Describe y discute 3 datos que llamen tu atención.</h2>
+		    <p>
+		    	Muestra información sobre la configuración de PHP<br>
+		    	Muestra gran cantidad de información sobre el estado actual de PHP. Incluye información sobre las opciones de compilación y extensiones de PHP, versión de PHP, información del servidor y entorno (si se compiló como módulo), entorno PHP, versión del OS, rutas, valor de las opciones de configuración locales y generales, cabeceras HTTP y licencia de PHP.<br>
+		    	Como cada sistema se instala diferente phpinfo() se usa comúnmente para revisar opciones de configuración y variables predefinidas disponibles en un sistema dado<br>
+		    	phpinfo() también es una valiosa herramienta de depuración ya que contiene todos valores EGPCS (Environment, GET, POST, Cookie, Server).
+		    </p>
+		    <h2>¿Qué cambios tendrías que hacer en la configuración del servidor para que pudiera ser apto en un ambiente de producción?</h2>
+		    <p>
+		    	Sin tener que instalar un servidor de Windows, que es bastante costoso, puede instalar una de las varias aplicaciones de terceros a las que podrá acceder el entorno de su servidor.
+				Algunas de estas aplicaciones son XAMPP y WAMP. Estas aplicaciones de terceros instalan Apache, MySQL y PHP dentro del programa.<br>
+		    </p>
+		    <h2>¿Cómo es que si el código está en un archivo con código html que se despliega del lado del cliente, se ejecuta del lado del servidor? Explica.</h2>
+		    <p>
+		    	Cuando accedemos a un enlace de hipertexto, en realidad estamos estableciendo una petición de un archivo HTML residente en el servidor (un ordenador que se encuentra continuamente conectado a la red) el cual es enviado e interpretado por nuestro navegador (el cliente). 
+		    </p>
+            <p>
+            Referencias: http://php.net/manual/es/function.phpinfo.php
+            </p>
+		  </article>
