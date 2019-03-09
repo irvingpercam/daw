@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    $varsession = $_SESSION['user'];
+    if($varsession == null || $varsession == ''){
+        echo 'Usuario no autorizado';
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +14,8 @@
     </head>
     <body>
         <p>
-            Tu usuario <strong><?php echo $usuario ?></strong> ha quedado registrado a nombre de <strong><?php echo $nombre ?></strong> con el siguiente correo electrónico : <strong><?php echo $correo ?></strong> y telefono : <strong><?php echo $phone ?></strong>
+            Tu usuario <strong><?php echo $_SESSION['user'] ?></strong> ha quedado registrado.<strong>
         </p>
-        <a href="index.php">Registra a otro usuario</a>
+        <a href=".../login.php">Registra a otro usuario</a>
     </body>
 </html>
