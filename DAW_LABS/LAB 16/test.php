@@ -61,7 +61,7 @@ function viewQuery($result){
                 <div>
                     <h2>Ver todas las frutas</h2>
                     <?php
-                        showQuery(getFruits());
+                        viewQuery(getFruits());
                     ?>
                 </div>
                 <div>
