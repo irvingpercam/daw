@@ -1,0 +1,128 @@
+Comprobando la propiedad de aislamiento en una BD. 
+
+Inserta la siguiente transacción y ejecútala: 
+
+BEGIN TRANSACTION PRUEBA1 
+INSERT INTO CLIENTES_BANCA VALUES('001', 'Manuel Rios Maldonado', 9000); 
+INSERT INTO CLIENTES_BANCA VALUES('002', 'Pablo Perez Ortiz', 5000); 
+INSERT INTO CLIENTES_BANCA VALUES('003', 'Luis Flores Alvarado', 8000); 
+COMMIT TRANSACTION PRUEBA1 
+
+Posteriormente revisa con la siguiente instrucción si la tabla de clientes_banca sufrió algún cambio. Es decir, si dio de alta el registro que se describe en la transacción. 
+
+SELECT * FROM CLIENTES_BANCA 
+
+Abre una nueva conexión a tu base de datos, esto se hace en el menú de archivo-->conectar. Al realizar esta instrucción, se abrirá una conexión independiente, a la que actualmente tienes, organiza las dos sesiones que tienes abiertas en el menú de venta. Una ventana la guardarás como usuario1 y la otra como usuario2. 
+
+Revisa el contenido de la tabla clientes_banca desde la ventana que inicializaste como la segunda sesión: 
+
+SELECT * FROM CLIENTES_BANCA 
+
+¿Que pasa cuando deseas realizar esta consulta?
+Se agrega la información a la tabla y esta se actualiza.
+
+Inserta la siguiente transacción y ejecútala: 
+
+BEGIN TRANSACTION PRUEBA2 
+INSERT INTO CLIENTES_BANCA VALUES('004','Ricardo Rios Maldonado',19000; 
+INSERT INTO CLIENTES_BANCA VALUES('005','Pablo Ortiz Arana',15000); 
+INSERT INTO CLIENTES_BANCA VALUES('006','Luis Manuel Alvarado',18000); 
+
+
+Te habrás percatado que falta el COMMIT TRANSACTION 
+
+Revisa el contenido de la tabla clientes_banca desde la ventana que inicializaste como la primera sesión con la siguiente consulta: 
+
+SELECT * FROM CLIENTES_BANCA 
+Se queda cargando
+
+Revisa el contenido de la tabla clientes_banca desde la ventana que inicializaste como la segunda sesión. 
+
+SELECT * FROM CLIENTES_BANCA 
+Aqui si carga la tabla con la nueva transacción
+
+¿Qué pasa cuando deseas realizar esta consulta? 
+
+Intenta con la siguiente consulta desde la segunda sesión: 
+
+SELECT * FROM CLIENTES_BANCA where NoCuenta='001' 
+
+Explica por qué ocurre dicho evento. 
+Ya que en la transacción uno si se hizo commit, la tupla si es visible para el usario 2
+
+Por último regresa a la ventana que mantiene activa tu primer sesión, agrega el siguiente comando a la pantalla y ejecútalo: 
+
+ROLLBACK TRANSACTION PRUEBA2 
+
+Revisa nuevamente el contenido de la tabla clientes_banca desde la ventana que inicializaste como la segunda sesión: 
+
+SELECT * FROM CLIENTES_BANCA 
+
+¿Qué ocurrió y por qué? 
+The ROLLBACK TRANSACTION request has no corresponding BEGIN TRANSACTION.
+Muestra la tabla, lo que debemos hacer es poner el commit en la transaccion de usuario 2 para que sea visible en el usario 1
+
+Comprobando la propiedad de Atomicidad en una BD 
+
+Inserta la siguiente transacción y ejecútala: 
+
+BEGIN TRANSACTION PRUEBA3 
+INSERT INTO TIPOS_MOVIMIENTO VALUES('A','Retiro Cajero Automatico'); 
+INSERT INTO TIPOS_MOVIMIENTO VALUES('B','Deposito Ventanilla'); 
+COMMIT TRANSACTION PRUEBA3 
+
+
+Inserta la siguiente transacción y ejecútala: 
+
+BEGIN TRANSACTION PRUEBA4 
+INSERT INTO MOVIMIENTOS VALUES('001','A',GETDATE(),500); 
+UPDATE CLIENTES_BANCA SET SALDO = SALDO -500 
+WHERE NoCuenta='001' 
+COMMIT TRANSACTION PRUEBA4 
+
+
+Posteriormente revisa si las tablas de clientes_banca y movimientos sufrieron algún cambio, es decir, si dio de alta el registro que se describe en la transacción y su actualización. 
+
+Manejando Fallas en una Transacción 
+
+Captura y ejecuta la siguiente transacción: 
+
+BEGIN TRANSACTION PRUEBA5 
+INSERT INTO CLIENTES_BANCA VALUES('005','Rosa Ruiz Maldonado',9000 
+INSERT INTO CLIENTES_BANCA VALUES('006','Luis Camino Ortiz',5000); 
+INSERT INTO CLIENTES_BANCA VALUES('001','Oscar Perez Alvarado',8000); 
+
+
+IF @@ERROR = 0 
+COMMIT TRANSACTION PRUEBA5 
+ELSE 
+BEGIN 
+PRINT 'A transaction needs to be rolled back' 
+ROLLBACK TRANSACTION PRUEBA5 
+END 
+
+
+Ejecuta la transacción, esta se ejecuta de igual forma que realizas una consulta. 
+
+Revisa el contenido de la tabla materiales. 
+
+Revisa el contenido de la tabla CLIENTES_BANCA. 
+
+¿Para qué sirve el comando @@ERROR revisa la ayuda en línea? 
+@@ERROR nos permite saber si hay un error en la ejecución de latransacción
+
+¿Qué hace la transacción? 
+Al hacer if @@ERROR = 0 es como decir si no hay error ejecuta la transacción de lo contrario pide un roll back
+
+¿Hubo alguna modificación en la tabla? Explica qué pasó y por qué. 
+No por dos motivos: se violaron las llaves primarias, se marco un error, no se ejecutó la transacción
+
+Por analogía crea las siguientes transacciones dentro de un stored procedure: 
+
+Una transacción puede estar definida dentro de un stored procedure, respetando la misma sintaxis y con la ventaja de recibir parámetros. 
+
+play_arrowUna transacción que registre el retiro de una cajero. nombre del store procedure REGISTRAR_RETIRO_CAJERO que recibe 2 parámetros en NoCuenta y el monto a retirar. 
+
+play_arrowUna transacción que registre el deposito en ventanilla. Nombre del store procedure REGISTRAR_DEPOSITO_VENTANILLA que recibe 2 parámetros en NoCuenta y el monto a depositar. 
+
+Las transacciones deben de ser diseñadas para que en caso de que ocurra algún error la base de datos mantenga su consistencia.
